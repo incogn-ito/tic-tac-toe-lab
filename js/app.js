@@ -4,11 +4,6 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board
-let turn
-let winner
-let tie
-
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -17,8 +12,14 @@ const winningCombos = [
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],                      // all the combinations of numbered squares on the grid that would be a tic tac toe
+    [2, 4, 6]                      // all the combinations of numbered squares on the grid that would be a tic tac toe
   ]    
+
+let board
+let turn
+let winner
+let tie
+
 
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.sqr')
@@ -57,8 +58,8 @@ function updateMessage() {
         messageEl.textContent = `It is ${turn}'s turn`
     } else if (winner === false && tie === true) {
         messageEl.textContent = "It's a tie!"
-        } else {
-            messageEl.textContent = `${turn} is the winner!`
+     } else {
+        messageEl.textContent = `${turn} is the winner!`
         }
     }
 
@@ -68,8 +69,14 @@ function handleClick(evt) {
         return
     }     
     placePiece(squareIndex)  
-    // checkForWinner()
-    console.log(board)   
+    checkForWinner()
+    renrder()
+}
+
+// when you get a problem that requires you to write function that "accepts" a parameterr this is what it looks like
+function placePiece(index) {
+    board[index] = turn
+    console.log(board)
 }
 
 /*
@@ -90,12 +97,20 @@ function checkForWinner() {
         (board[2] !== '' && board[2] === board[4] && board[2] === board[6])
     ) {
         winner = true       
-    }  // checking for winner
-        checkForWinner()
-        console.log(winner)
-        // next turn
-        render()
+    }  
+}
+
+function checkForTie() {
+    if (winner) {
+      return
     }
+}
+
+function switchPlayerTurn() {
+    if (winner) {
+      return
+    }
+}
     
 // [0, 1, 2],
 // [3, 4, 5],
@@ -110,12 +125,6 @@ function checkForWinner() {
   squareEls.forEach((squareEl) => {                      
     squareEl.addEventListener('click', handleClick)     
 })
-                    
-// when you get a problem that requires you to write function that "accepts" a parameterr this is what it looks like
-function placePiece(index) {
-    board[index] = turn
-    console.log(board)
-}
 
 /*
 for every loop thouhg square element, espond to user event by noting what square was clicked
