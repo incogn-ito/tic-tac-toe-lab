@@ -16,18 +16,39 @@ console.log(messageEl)
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
-    let board = ['', '', '', '', '', '', '', '', '']
+    let board = ['', 'x', '', '', 'o ', '', '', '', '']  // array so use for...each
     turn = 'x'
-    winner = true
+    winner = false
     tie = false
     render()
 }
 
 function render() {
+    updateBoard()
 }
 
+function updateBoard() {
+    board.forEach((cell, idx) => {   // use current idx of the iteration to access corresponding square on the board
+        if (cell === 'x') {
+            squareEls[idx].textContent = 'x'   
+        } else if (cell === 'o') {
+            squareEls[idx].textContent = 'o'
+        } else {
+            squareEls[idx].textContent = '' // for future style updates
+            }
+        })
+    }
+function updateMessage() {
+    if (winner === false && tie === false) {            // cleaner: (winner && !tie)
+        messageEl.textContent = `It is ${turn}'s turn'
+    } else if (winner === false) && (tie === true) {
+        messageEl.tabIndex = `'s a tie!'
+    }
+    }
+    }
 /*----------------------------- Event Listeners -----------------------------*/
 
+updateBoard()
 //1) Define the required variables used to track the state of the game.
 
 //2) Store cached element references.
