@@ -17,7 +17,7 @@ const messageEl = document.getElementById('message')
 function init() {
     let board = ['', 'x', '', '', 'o', '', '', '', '']  // array so use for...each
     turn = 'x'
-    winner = true
+    winner = false
     tie = false
     render()
 }
