@@ -14,8 +14,10 @@ const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.getElementById('message')
 
 /*-------------------------------- Functions --------------------------------*/
+init()
+
 function init() {
-    let board = ['', 'x', '', '', 'o', '', '', '', '']  // array so use for...each
+    board = ['', '', '', '', 'o', '', 'x', '', '']  // array so use for...each
     turn = 'x'
     winner = false
     tie = false
@@ -24,6 +26,7 @@ function init() {
 
 function render() {
     updateBoard()
+    updateMessage()
 }
 
 function updateBoard() {
@@ -44,10 +47,11 @@ function updateMessage() {
     } else if (winner === false && tie === true) {
         messageEl.textContent = "It's a tie!"
         } else {
-            messageEl.textContent = "You're a winner!"
+            messageEl.textContent = `${turn} is the winner!`
         }
     }
-/*----------------------------- Event Listeners -----------------------------*/
+
+ /*----------------------------- Event Listeners -----------------------------*/
 
 //1) Define the required variables used to track the state of the game.
 
