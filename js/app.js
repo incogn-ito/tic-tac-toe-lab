@@ -24,6 +24,7 @@ let tie
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.getElementById('message')
+const resetBtnEl = document.getElementById('reset')
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -130,9 +131,10 @@ function switchPlayerTurn() {
 // [2, 4, 6], 
 
  /*----------------------------- Event Listeners -----------------------------*/
-  squareEls.forEach((squareEl) => {                      
+squareEls.forEach((squareEl) => {                      
     squareEl.addEventListener('click', handleClick)     
 })
+resetBtnEl.addEventListener('click', init)
 
 /*
 for every loop thouhg square element, espond to user event by noting what square was clicked
