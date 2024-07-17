@@ -45,22 +45,26 @@ function render() {
 function updateBoard() {
     board.forEach((cell, idx) => {   // use current idx of the iteration to access corresponding square on the board
         if (cell === 'x') {
-            squareEls[idx].textContent = 'x' 
+            squareEls[idx].textContent = '🦄' 
+            squareEls[idx].style.backgroundColor = '#C6E0D8'
         } else if (cell === 'o') {
-            squareEls[idx].textContent = 'o'
+            squareEls[idx].textContent = '👻'
+            squareEls[idx].style.backgroundColor = '#AF42AE'
         } else {
             squareEls[idx].textContent = '' // for future style updates
+            squareEls[idx].style.backgroundColor = '#FCF0CC'
+
             }
         })
     }
 
 function updateMessage() {
     if (winner === false && tie === false) {            // cleaner way to write this for next time: (winner && !tie)
-        messageEl.textContent = `It is ${turn}'s turn`
+        messageEl.textContent = `It is ${turn === 'x' ? '🦄' : '👻'}'s turn` // This is "?" is called a "turnary operator"
     } else if (winner === false && tie === true) {
         messageEl.textContent = "It's a tie!"
      } else {
-        messageEl.textContent = `${turn} is the winner!`
+        messageEl.textContent = `${turn === 'x' ? '🦄' : '👻'} is the winner!`
         }
     }
 

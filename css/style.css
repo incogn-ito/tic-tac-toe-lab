@@ -1,25 +1,48 @@
 body {
-    background-color: rgb(207, 96, 48);
+    background-color: #EB9486;
     /* Use a system font, if none are available use an available sans-sarif */
-    font-family: system-ui, sans-serif;
+    font-family: system-ui,'Helvetica Neue', sans-serif;
     margin: 0;
+    color: #ffffff;
+    height: 100vh;                /* use this height 100vh = makes it so that the height of page is equal to */
+    display: flex;                /* you need this dislay.flex in order to use flexbox */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .board {
     display: flex;
+    justify-content: center;  /* this centers the items in the container */
     flex-wrap: wrap;
     width: 325px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
   }
   
   .sqr {
     width: 30%;
     aspect-ratio: 1/1;
-    border: 3px solid black;
+    border: 3px solid #EB9486;
     font-size: 64px;
     text-align: center;
-    background-color: rgb(237, 195, 179);
+    background-color: #FCF0CC;
+    border-radius: 8px;
+    gap: 3px;
   }
+
+  h1 {
+    margin-bottom: 0px;  
+  }
+
+  button {
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui, sans-serif;
+    border: none;
+    width: 100px;
+    height: 35px;
+    background-color: #D56AA0;
+    border-radius: 8px;
   
