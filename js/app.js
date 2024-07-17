@@ -70,20 +70,16 @@ function handleClick(evt) {
     }     
     placePiece(squareIndex)  
     checkForWinner()
-    renrder()
+    render()
 }
+/* DOM helps us pull our ID but we need to change datat types 
+Thus parseInt help me change data type from string to NUMBER
 
-// when you get a problem that requires you to write function that "accepts" a parameterr this is what it looks like
+When you get a problem that requires you to write function that "accepts" a parameter this is what it looks like
+*/
 function placePiece(index) {
     board[index] = turn
-    console.log(board)
 }
-
-/*
-DOM helps us pull our ID but we need to change 
-parseInt help me change data types
-Data type from string to NUMBER
-*/
 
 function checkForWinner() {
     if (
@@ -104,13 +100,22 @@ function checkForTie() {
     if (winner) {
       return
     }
-}
+    if (!board.includes('')) {
+      tie = true
+    }
+  }
 
 function switchPlayerTurn() {
     if (winner) {
       return
     }
+    if (turn === 'X') {
+        turn = 'O'
+    } else {
+        turn = 'X'
+    }
 }
+      // turn = turn === 'X' ? 'O' : 'X'
     
 // [0, 1, 2],
 // [3, 4, 5],
@@ -131,20 +136,18 @@ for every loop thouhg square element, espond to user event by noting what square
 "invoking" the event listening tells it to run right now. 
 if you put it in as an argument -- you cannot invoke them.
 
+1) Define the required variables used to track the state of the game.
+
+2) Store cached element references.
+
+3) Upon loading, the game state should be initialized, and a function should 
+    be called to render this game state.
+
+4) The state of the game should be rendered to the user.
+
+5) Define the required constants.
+
+6) Handle a player clicking a square with a `handleClick` function.
+
+7) Create Reset functionality
 */
-
-                                     
-//1) Define the required variables used to track the state of the game.
-
-//2) Store cached element references.
-
-//3) Upon loading, the game state should be initialized, and a function should 
-//   be called to render this game state.
-
-//4) The state of the game should be rendered to the user.
-
-//5) Define the required constants.
-
-//6) Handle a player clicking a square with a `handleClick` function.
-
-//7) Create Reset functionality.
