@@ -68,8 +68,10 @@ function handleClick(evt) {
     if (board[squareIndex] === 'x' || board[squareIndex] === 'o' || winner) {
         return
     }     
-    placePiece(squareIndex)  
+    placePiece(squareIndex)   // calling the placePiece function and passing squareIndex to it as an argument
     checkForWinner()
+    checkForTie()
+    switchPlayerTurn()
     render()
 }
 /* DOM helps us pull our ID but we need to change datat types 
@@ -78,7 +80,7 @@ Thus parseInt help me change data type from string to NUMBER
 When you get a problem that requires you to write function that "accepts" a parameter this is what it looks like
 */
 function placePiece(index) {
-    board[index] = turn
+    board[index] = turn 
 }
 
 function checkForWinner() {
@@ -97,7 +99,7 @@ function checkForWinner() {
 }
 
 function checkForTie() {
-    if (winner) {
+    if (winner === true) {          // cleaner way to write this: if (winner) { 
       return
     }
     if (!board.includes('')) {
@@ -106,16 +108,17 @@ function checkForTie() {
   }
 
 function switchPlayerTurn() {
-    if (winner) {
+    if (winner === true) {
       return
     }
-    if (turn === 'X') {
-        turn = 'O'
+    if (turn === 'x') {
+        turn = 'o'
     } else {
-        turn = 'X'
+        turn = 'x'
     }
 }
-      // turn = turn === 'X' ? 'O' : 'X'
+
+      // turn = turn === 'X' ? 'O' : 'X' --> ? = turn operator that you can use to equal all of the code for "if (turn === 'x.")
     
 // [0, 1, 2],
 // [3, 4, 5],
